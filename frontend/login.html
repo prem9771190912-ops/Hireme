@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Sign In — HireMe</title><link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page">
+<div class="auth-shell">
+  <div class="auth-brand"><a class="brand" href="index.html"><span class="brand-mark">H</span> Hire<b>Me</b></a></div>
+  <div class="auth-card">
+    <div class="auth-head"><div class="mini-icon">↗</div><h1>Welcome back</h1><p>How do you want to continue?</p></div>
+    <div class="role-tabs">
+      <button class="role-tab active" data-role="jobseeker" type="button"><span>👤</span><div><b>Job Seeker</b><small>Find and apply for jobs</small></div></button>
+      <button class="role-tab" data-role="recruiter" type="button"><span>💼</span><div><b>Recruiter</b><small>Post and manage jobs</small></div></button>
+    </div>
+    <form id="loginForm">
+      <input type="hidden" id="role" value="jobseeker">
+      <label>Email address<input id="email" type="email" placeholder="you@example.com" required></label>
+      <label>Password<div class="password-wrap"><input id="password" type="password" placeholder="••••••••" required><button type="button" id="togglePass">Show</button></div></label>
+      <div class="form-row"><label class="check"><input type="checkbox"> Remember me</label><a href="forgot-password.html">Forgot password?</a></div>
+      <p class="auth-message" id="authMessage" role="alert" aria-live="polite" hidden></p>
+      <script>
+        if (new URLSearchParams(window.location.search).get("registered") === "1") {
+          const message = document.getElementById("authMessage");
+          message.textContent = "Account created successfully. Please sign in.";
+          message.hidden = false;
+        }
+      </script>
+      <button class="btn btn-primary btn-full" type="submit">Sign in <span>→</span></button>
+    </form>
+    <p class="switch-auth">New to HireMe? <a href="signup.html">Create an account</a></p>
+  </div>
+</div>
+<script src="js/api.js"></script><script src="js/auth.js"></script>
+</body></html>
